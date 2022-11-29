@@ -23,7 +23,7 @@ class User extends Model
     ];
 
     protected $hidden = [
-        'remember_token',
+        'access_token',
         'email_verified_at'
     ];
 
