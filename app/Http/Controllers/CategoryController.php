@@ -112,7 +112,7 @@ class CategoryController extends Controller
         ]);
 
         $nameValidator = Validator::make($request->all(), [
-            'name' => ['unique:categories'],
+            'name' => ['unique:categories,name,'.$id],
         ]); 
 
         if ($dataValidator->fails()) {
@@ -125,7 +125,7 @@ class CategoryController extends Controller
             );
         }
 
-        if ($nameValidator->fails()) {
+        if ($nameValidator ->fails()) {
             return response()->json(
                 [
                     'code' => 400,
@@ -133,8 +133,8 @@ class CategoryController extends Controller
                     'message' => '¡Ya existe otra categoría con el nombre '.$request->name.'!',
                 ]
             );
-        } 
-        
+        }
+
         $category->name = $request->name;
         $category->description = $request->description;
         
@@ -147,7 +147,7 @@ class CategoryController extends Controller
                 'message' => '¡Categoría actualizada con éxito!',
                 'data' => $category
             ]
-        );
+        );       
     }
 
     public function destroy($id)

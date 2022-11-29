@@ -110,7 +110,7 @@ class UserController extends Controller
         ]);
 
         $emailValidator = Validator::make($request->all(), [
-            'email' => ['unique:users'],
+            'email' => ['unique:users,email,'.$id],
         ]); 
 
         if ($dataValidator->fails()) {

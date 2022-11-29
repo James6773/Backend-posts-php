@@ -40,9 +40,9 @@ class PostController extends Controller
             'tittle' => ['unique:posts'],
         ]); 
 
-        /*$stateValidator = Validator::make($request->all(), [
-            'state' => ['unique:posts'],
-        ]); */
+        $stateValidator = Validator::make($request->all(), [
+            'state' => ['in:0,1'],
+        ]); 
 
         if ($dataValidator->fails()) {
             return response()->json(
@@ -64,7 +64,7 @@ class PostController extends Controller
             );
         } 
         
-        /*if ($stateValidator->fails()) {
+        if ($stateValidator->fails()) {
             return response()->json(
                 [
                     'code' => 400,
@@ -72,7 +72,7 @@ class PostController extends Controller
                     'message' => '¡El estado ingresado no es valido! No Publicado:0 / Publicado:1',
                 ]
             );
-        } */
+        } 
 
         $user = User::find($request->user_id);
 
@@ -143,12 +143,12 @@ class PostController extends Controller
         ]);
 
         $tittleValidator = Validator::make($request->all(), [
-            'tittle' => ['unique:posts'],
+            'tittle' => ['unique:posts,tittle,'.$id],
         ]); 
 
-        /*$stateValidator = Validator::make($request->all(), [
-            'state' => ['unique:posts'],
-        ]); */
+        $stateValidator = Validator::make($request->all(), [
+            'state' => ['in:0,1'],
+        ]); 
 
         if ($dataValidator->fails()) {
             return response()->json(
@@ -170,7 +170,7 @@ class PostController extends Controller
             );
         } 
         
-        /*if ($stateValidator->fails()) {
+        if ($stateValidator->fails()) {
             return response()->json(
                 [
                     'code' => 400,
@@ -178,7 +178,7 @@ class PostController extends Controller
                     'message' => '¡El estado ingresado no es valido! No Publicado:0 / Publicado:1',
                 ]
             );
-        } */
+        } 
 
         $user = User::find($request->user_id);
 
