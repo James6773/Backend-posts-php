@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('tittle', 255)->unique();
-            $table->longText('description')->nullable()->change();
+            $table->string('description', 255)->nullable()->change();
             $table->tinyInteger('state')->comment('0: No publicado, 1: Publicado')->default(0);
             $table->string('content', 255);
             $table->timestamps();

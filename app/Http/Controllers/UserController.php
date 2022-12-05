@@ -184,4 +184,27 @@ class UserController extends Controller
             'message' => '¡Usuario eliminado con éxito!'
         ]);
     }
+
+    public function listById($id)
+    {
+        $user = User::find($id);
+
+        if (empty($user)) {
+            return response()->json(
+                [
+                    'code' => 401,
+                    'status' => 'Not Found',
+                    'message' => '¡El usuario que intenta buscar no existe!',
+                ]
+            );
+        }
+
+        $user->toArray();
+
+        return response()->json([
+            'code' => 200,
+            'status' => 'OK',
+            'data' => $user
+        ]);
+    }
 }

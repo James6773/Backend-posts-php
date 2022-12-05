@@ -247,4 +247,27 @@ class PostController extends Controller
             'message' => '¡Post eliminado con éxito!'
         ]);
     }
+
+    public function listById($id)
+    {
+        $post = Post::find($id);
+
+        if (empty($post)) {
+            return response()->json(
+                [
+                    'code' => 401,
+                    'status' => 'Not Found',
+                    'message' => '¡El post que intenta buscar no existe!',
+                ]
+            );
+        }
+
+        $post->toArray();
+
+        return response()->json([
+            'code' => 200,
+            'status' => 'OK',
+            'data' => $post
+        ]);
+    }
 }

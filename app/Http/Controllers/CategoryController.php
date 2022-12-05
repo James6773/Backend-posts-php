@@ -172,4 +172,27 @@ class CategoryController extends Controller
             'message' => '¡Categoría eliminada con éxito!'
         ]);
     }
+
+    public function listById($id)
+    {
+        $category = Category::find($id);
+
+        if (empty($category)) {
+            return response()->json(
+                [
+                    'code' => 401,
+                    'status' => 'Not Found',
+                    'message' => '¡La categoría que intenta buscar no existe!',
+                ]
+            );
+        }
+
+        $category->toArray();
+
+        return response()->json([
+            'code' => 200,
+            'status' => 'OK',
+            'data' => $category
+        ]);
+    }
 }
