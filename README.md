@@ -54,9 +54,5 @@ Permite actualizar un post existente por su id.
 * DELETE: /api/post/destroy/:id  
 Permite eliminar definitivamente un post existente por su id. 
 
-***4. AccessTokenController:***
-
-* GET: /api/accessToken/get/:id  
-Permite obtener un token de acceso con el id de un usuario.
 
 
