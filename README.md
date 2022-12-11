@@ -8,6 +8,9 @@
 * GET: /api/category/list  
 Permite listar todas las categorías creadas. 
 
+* GET: /api/category/listById  
+Permite listar una categoría creada por su id. 
+
 * POST: /api/category/store  
 Permite crear una nueva categoría.  
 
@@ -22,6 +25,9 @@ Permite eliminar definitivamente una categoría existente por su id.
 * GET: /api/user/list  
 Permite listar todos los usuarios guardados. 
 
+* GET: /api/user/listById  
+Permite listar un usuario creado por su id. 
+
 * POST: /api/user/store  
 Permite guardar un nuevo usuario.  
 
@@ -35,6 +41,9 @@ Permite eliminar definitivamente un usuario existente por su id.
 
 * GET: /api/post/list  
 Permite listar todos los posts creados. 
+
+* GET: /api/post/listById  
+Permite listar un post creado por su id. 
 
 * POST: /api/post/store  
 Permite crear un nuevo post.  
