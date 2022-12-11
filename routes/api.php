@@ -7,6 +7,7 @@ use App\Http\Middleware\EnsureTokenIsValid;
 
 //Route::get('welcome', [CategoryController::class, 'apiWelcome']);
 
+
 Route::get('category/list', 'App\Http\Controllers\CategoryController@list');
 Route::post('category/store', 'App\Http\Controllers\CategoryController@store');
 Route::put('category/update/{id}', 'App\Http\Controllers\CategoryController@update');
